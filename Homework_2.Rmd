@@ -1,0 +1,800 @@
+---
+title: "Homework 2"
+author: "James Clark"
+date: "2/3/2022"
+output: html_document
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(textreadr)
+library(tidyverse)
+library(readxl)
+library(writexl)
+library(lubridate)
+library(R6)
+library(testthat)
+library(shiny)
+setwd("C:/Users/James/OneDrive/School/MATH_3190")
+```
+
+
+## Load In College Basketball Data {.tabset}
+
+
+### scan
+
+```{r}
+basketball <- scan("http://kenpom.com/cbbga22.txt", what = "list")
+##reads as a list
+
+```
+
+
+### read_html
+
+```{r}
+basketball <- read_html("http://kenpom.com/cbbga22.txt")
+##returns a character vector 
+
+```
+
+
+### readr
+
+```{r}
+file <- "http://kenpom.com/cbbga22.txt"
+download.file(file,"C:/Users/James/OneDrive/School/MATH_3190/cbbga22.txt" )
+basketball <- read_fwf(file = "cbbga22.txt", show_col_types = F) 
+##reads a tibble
+
+```
+
+### readxl
+
+```{r}
+write_xlsx(basketball, "cbbga22.xlsx")
+basketball <- read_excel("C:/Users/James/OneDrive/School/MATH_3190/cbbga22.xlsx")
+##reads a tibble from an excel spreadsheet
+
+```
+
+
+
+## Different Classes in R
+
+### S3
+S3 is the simplest system. In this system methods do not belong to the class. Most predifined classes are this type. This would be useful for creating a simple list.
+
+```{r}
+x <- list(course = "Math 3190", time = "8:00", student = "James")
+```
+
+### S4
+S4 provides more structure to its objects.This class includes slots. For example data types can be assigned to elements in a list and only those types will be accepted. This can be useful to help eliminate data input errors.
+
+```{r}
+setClass("Course", representation(name = "character", number = "numeric"))
+
+## data now must match given types
+##for example: using "Math 3190" for number will return and error
+ds <- new("Course", name = "Fundamental of Data Science", number = 3190)
+```
+
+### R6
+In this class methods belong to objects. Objects are also mutable, so they can be changed in place. This can include built in functions to manipulate data.
+
+```{r}
+example <- R6Class("example",list(
+        total = 0,
+        add = function(x=1){
+        self$total <- self$total +1
+        }))
+z <- example$new()
+z$add(7)
+z$total
+```
+
+
+## Manipulating the data
+
+### Add column names 
+
+```{r}
+basketball <- basketball %>%
+  rename( date = X1, away = X2, away_score = X3, home = X4, home_score = X5 ) 
+```
+
+### Add column for point differential
+```{r}
+basketball <- basketball %>%
+  mutate(point_diff = home_score - away_score)
+```
+
+### sort the data by the location the game was played
+```{r}
+basketball <- basketball %>%
+  arrange(home)
+```
+
+### remove columns 6 and 7 
+```{r}
+basketball <- basketball %>%
+  select(-c(X6, X7))
+```
+
+### filter for games that were played in 2022 only
+```{r}
+basketball$date <- mdy(basketball$date)
+
+basketball_2022 <- basketball %>%
+  filter(year(date) >= 2022)
+```
+
+### Save datasets
+
+```{r}
+write.csv(basketball,"C:/Users/James/OneDrive/School/MATH_3190/github/hw2package/inst/cbb.csv", row.names = F)
+write.csv(basketball_2022, "C:/Users/James/OneDrive/School/MATH_3190/github/hw2package/inst/cbb22.csv", row.names = F)
+
+```
+
+
+## Write a function that will filter to only games played by a given team
+```{r}
+team_select <- function(team, data, chr = FALSE){
+  if(chr == TRUE){
+    data %>%
+      filter(home == team | away == team) %>%
+      arrange(date) %>%
+      ##this preserves date format for shiny interface
+      mutate(date = as.character(date))
+  }
+  else
+    data %>%
+    filter(home == team | away == team) %>%
+    arrange(date) 
+}
+team_select("Southern Utah", basketball_2022)
+```
+
+## Find a team's winning percentage
+```{r}
+win_per <- function(team, data){
+  team_data <- team_select(team, data)
+  team_data %>%
+    mutate(win = ifelse(
+      (away == team & point_diff <0 ) | (home == team & point_diff > 0),
+      1,0
+    )) %>%
+    summarise(win_per = sum(win)/ n(), wins = sum(win), losses = n() - wins)
+}
+win_per("Southern Utah", basketball_2022)
+```
+
+## Create a package for basketabll functions
+
+```{r, echo=T, eval=F}
+
+setwd("C:/Users/James/OneDrive/School/MATH_3190/github")
+devtools::create("hw2package")
+usethis::use_mit_license()
+devtools::install("hw2package")
+library(hw2package)
+```
+
+
+```{r}
+##test functions from package
+suu_test <- team_select("Southern Utah", basketball_2022)
+win_test <- win_per("Southern Utah", basketball_2022)
+```
+
+
+### Unit tests
+```{r}
+##unit tests for team select
+test_that("result",{
+  expect_equal(team_select("Southern Utah", basketball_2022),
+     suu_test          
+) 
+})
+
+test_that("object",{
+  expect_true(is_tibble(team_select("Southern Utah", basketball_2022)),
+) 
+})
+
+
+```
+
+```{r}
+##unit tests for win per
+test_that("result",{
+  expect_equal(win_per("Southern Utah", basketball_2022),
+     win_test          
+) 
+})
+
+test_that("object",{
+  expect_true(is_tibble(win_per("Southern Utah", basketball_2022)),
+) 
+})
+
+
+```
+
+
+## Create a graph using basketball data
+
+```{r}
+
+game_graph <- function(team, data){
+
+data <- team_select(team, data)
+
+##change point differential to perspective of selected team instead of home team
+data$point_diff <- ifelse(data$away == team, -data$point_diff, data$point_diff)
+
+##add opponent variable
+data$opp <- ifelse(data$away == team, data$home, data$away)
+
+##create variable for if they won
+data$Result <- as.factor(ifelse(data$point_diff > 0, "Win", "Loss"))
+
+data <- data %>%
+  arrange(date)
+
+ggplot(data,aes(x = point_diff, y = opp, fill= Result) ) + geom_bar(stat = 'identity') + geom_vline(xintercept = 0) + 
+  labs(x = "Point Differential",y = "Opponent", title = paste(team,"Point Difference by Game") )
+
+}
+
+suu_graph <- game_graph("Southern Utah", basketball_2022)
+```
+
+### Unit tests for game_graph
+
+```{r}
+setwd("C:/Users/James/OneDrive/School/MATH_3190/github")
+devtools::install("hw2package")
+library(hw2package)
+
+test_that("result",{
+  expect_equal(game_graph("Southern Utah", basketball_2022),
+     suu_graph         
+) 
+})
+
+```
+
+## Shiny Interface
+
+```{r}
+
+##This will require the basketball_2022 df that was created above
+setwd("C:/Users/James/OneDrive/School/MATH_3190/github/hw2package/inst")
+source("ui.R")
+source("server.R")
+
+shinyApp(server = server, ui = ui)
+
+##similarly
+shiny_app("C:/Users/James/OneDrive/School/MATH_3190/github/hw2package/inst")
+```
+
+
+
+
+
+## Kmeans tutorial
+
+### Step 00: Template
+This creates a blank template with a sidebar panel. 
+
+```{r, template, eval=F, echo=T}
+ui <- fluidPage(
+  
+  # Put a titlePanel here
+  
+  
+  sidebarLayout(
+    # Sidebar. Put your inputs inside the sidebarPanel
+    sidebarPanel(
+      
+    ),
+    
+    # Main panel. put your output plot here
+    mainPanel(
+      
+    )
+  )
+)
+
+server <- function(input, output, session) {
+
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+### Step 01: Title Panel
+
+This step adds a "k-means clustering" title. 
+
+```{r, add title panel, eval=F, echo=T}
+ui <- fluidPage(
+  
+  # Put a titlePanel here
+  titlePanel("k-means clustering"),
+  
+  sidebarLayout(
+    # Sidebar. Put your inputs inside the sidebarPanel
+    sidebarPanel(
+      
+    ),
+    
+    # Main panel. put your output plot here
+    mainPanel(
+      
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+### Step 02: UI inputs
+
+This step adds inputs that are used for clustering. Namely, it adds an input for a X and Y variable, as well as the number of clusters. 
+
+```{r, add ui inputs, eval=F, echo=T}
+ui <- fluidPage(
+  
+  # Put a titlePanel here
+  titlePanel("k-means clustering"),
+  
+  sidebarLayout(
+    # Sidebar. Put your inputs inside the sidebarPanel
+    sidebarPanel(
+      selectInput('xcol', 'X Variable', names(iris)),
+      selectInput('ycol', 'Y Variable', names(iris),
+                  selected=names(iris)[[2]]),
+      numericInput('clusters', 'Cluster count', 3,
+                   min = 1, max = 9)
+    ),
+    
+    # Main panel. put your output plot here
+    mainPanel(
+      
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+### Step 03: UI outputs
+
+While this step does not appear to do much within the app it "saves a spot" for a plot to be put based on the inputs. 
+
+```{r, add ui outputs, eval=F, echo=T}
+ui <- fluidPage(
+  
+  # Put a titlePanel here
+  titlePanel("k-means clustering"),
+  
+  sidebarLayout(
+    # Sidebar. Put your inputs inside the sidebarPanel
+    sidebarPanel(
+      selectInput('xcol', 'X Variable', names(iris)),
+      selectInput('ycol', 'Y Variable', names(iris),
+                  selected=names(iris)[[2]]),
+      numericInput('clusters', 'Cluster count', 3,
+                   min = 1, max = 9)
+    ),
+    
+    # Main panel. put your output plot here
+    mainPanel(
+      plotOutput('plot1')
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+### Step 04: Output plot
+
+This step adds a plot of the irises based on their length and width. However, these are not reactive.
+
+```{r, add output plot, eval=F, echo=T}
+ui <- fluidPage(
+  
+  # Put a titlePanel here
+  titlePanel("k-means clustering"),
+  
+  sidebarLayout(
+    # Sidebar. Put your inputs inside the sidebarPanel
+    sidebarPanel(
+      selectInput('xcol', 'X Variable', names(iris)),
+      selectInput('ycol', 'Y Variable', names(iris),
+                  selected=names(iris)[[2]]),
+      numericInput('clusters', 'Cluster count', 3,
+                   min = 1, max = 9)
+    ),
+    
+    # Main panel. put your output plot here
+    mainPanel(
+      plotOutput('plot1')
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  output$plot1 <- renderPlot({
+    plot(iris[,c("Sepal.Length","Sepal.Width")])
+  })
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+### Step 05: Reactive Axes
+
+In this step the plot is now reactive, so it responds to input variables we created earlier.
+
+```{r, add reactive axes, eval=F, echo=T}
+ui <- fluidPage(
+  
+  # Put a titlePanel here
+  titlePanel("k-means clustering"),
+  
+  sidebarLayout(
+    # Sidebar. Put your inputs inside the sidebarPanel
+    sidebarPanel(
+      selectInput('xcol', 'X Variable', names(iris)),
+      selectInput('ycol', 'Y Variable', names(iris),
+                  selected=names(iris)[[2]]),
+      numericInput('clusters', 'Cluster count', 3,
+                   min = 1, max = 9)
+    ),
+    
+    # Main panel. put your output plot here
+    mainPanel(
+      plotOutput('plot1')
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  output$plot1 <- renderPlot({
+    plot(iris[,c(input$xcol,input$ycol)])
+  })
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+### Step 06: K means
+
+This step adds the kmeans algorithm, so now our data is divided into how many clusters our input dictates. 
+
+```{r, add K means clustering, eval=F, echo=T}
+ui <- fluidPage(
+  
+  # Put a titlePanel here
+  titlePanel("k-means clustering"),
+  
+  sidebarLayout(
+    # Sidebar. Put your inputs inside the sidebarPanel
+    sidebarPanel(
+      selectInput('xcol', 'X Variable', names(iris)),
+      selectInput('ycol', 'Y Variable', names(iris),
+                  selected=names(iris)[[2]]),
+      numericInput('clusters', 'Cluster count', 3,
+                   min = 1, max = 9)
+    ),
+    
+    # Main panel. put your output plot here
+    mainPanel(
+      plotOutput('plot1')
+    )
+  )
+)
+
+server <- function(input, output, session) {
+
+  output$plot1 <- renderPlot({
+    plot(iris[,c(input$xcol,input$ycol)],
+         col = kmeans(iris[,c(input$xcol,input$ycol)], input$clusters)$cluster)
+  })
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+### Step 07: Cluster centers
+
+This step add a big X in the center of each cluster.
+
+```{r, add cluster centers, eval=F, echo=T}
+ui <- fluidPage(
+  
+  # Put a titlePanel here
+  titlePanel("k-means clustering"),
+  
+  sidebarLayout(
+    # Sidebar. Put your inputs inside the sidebarPanel
+    sidebarPanel(
+      selectInput('xcol', 'X Variable', names(iris)),
+      selectInput('ycol', 'Y Variable', names(iris),
+                  selected=names(iris)[[2]]),
+      numericInput('clusters', 'Cluster count', 3,
+                   min = 1, max = 9)
+    ),
+    
+    # Main panel. put your output plot here
+    mainPanel(
+      plotOutput('plot1')
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  
+  output$plot1 <- renderPlot({
+    plot(iris[,c(input$xcol,input$ycol)],
+         col = kmeans(iris[,c(input$xcol,input$ycol)], input$clusters)$cluster)
+    points(kmeans(iris[,c(input$xcol,input$ycol)], input$clusters)$centers, pch = 4, cex = 4, lwd = 4)
+  })
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+### Step 08: Save Kmeans
+
+This adds a reactive function which saves the clusters. 
+
+```{r, save k means result as reactive, eval=F, echo=T}
+ui <- fluidPage(
+  
+  # Put a titlePanel here
+  titlePanel("k-means clustering"),
+  
+  sidebarLayout(
+    # Sidebar. Put your inputs inside the sidebarPanel
+    sidebarPanel(
+      selectInput('xcol', 'X Variable', names(iris)),
+      selectInput('ycol', 'Y Variable', names(iris),
+                  selected=names(iris)[[2]]),
+      numericInput('clusters', 'Cluster count', 3,
+                   min = 1, max = 9)
+    ),
+    
+    # Main panel. put your output plot here
+    mainPanel(
+      plotOutput('plot1')
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  
+  clusters <- reactive({
+    kmeans(iris[,c(input$xcol,input$ycol)], input$clusters)
+  })
+  
+  output$plot1 <- renderPlot({
+    plot(iris[,c(input$xcol,input$ycol)],
+         col = clusters()$cluster)
+    points(clusters()$centers, pch = 4, cex = 4, lwd = 4)
+  })
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+### Step 09: Final App
+
+This final step fills in the points as well as changes the color scheme to make it a little more presentable. 
+
+```{r, final app, eval=F, echo=T}
+ui <- fluidPage(
+  
+  # Put a titlePanel here
+  titlePanel("k-means clustering"),
+  
+  sidebarLayout(
+    # Sidebar. Put your inputs inside the sidebarPanel
+    sidebarPanel(
+      selectInput('xcol', 'X Variable', names(iris)),
+      selectInput('ycol', 'Y Variable', names(iris),
+                  selected=names(iris)[[2]]),
+      numericInput('clusters', 'Cluster count', 3,
+                   min = 1, max = 9)
+    ),
+    
+    # Main panel. put your output plot here
+    mainPanel(
+      plotOutput('plot1')
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  
+  selectedData <- reactive({
+    iris[, c(input$xcol, input$ycol)]
+  })
+  
+  clusters <- reactive({
+    kmeans(selectedData(), input$clusters)
+  })
+  
+  output$plot1 <- renderPlot({
+    palette(c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
+              "#FF7F00", "#FFFF33", "#A65628", "#F781BF", "#999999"))
+    
+    par(mar = c(5.1, 4.1, 0, 1))
+    plot(selectedData(),
+         col = clusters()$cluster,
+         pch = 20, cex = 3)
+    points(clusters()$centers, pch = 4, cex = 4, lwd = 4)
+  })
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+## Create Kmeans function for Kmeans package
+
+```{r}
+
+##Function to create clusters
+kmeans <- function(x, y, clust, n){
+  
+  ##Set initial midpoints
+    x_clust <- runif(clust, min = min(x), max = max(x))
+    y_clust <- runif(clust, min = min(y), max = max(y))
+  
+    clusters <- data.frame(x_clust, y_clust)
+  
+  ##find the nearest cluster midpoint for each point
+    data <- data.frame(x, y)
+    
+    ##initialize variables
+    
+      ##set as large value that no point could have a greater distance than
+      data$min_dist <- 2 * (max(x)^2+max(y)^2)
+      data$dist <- NA
+      data$clust <- NA
+    
+    ##Itterate n many times
+  for (j in 1:n){    
+      
+    ## Finds nearest midpoint for each point  
+    for (i in 1:clust){
+      ##Calculates distance 
+      data$dist <- sqrt( (x-clusters$x_clust[i])^2+(y-clusters$y_clust[i])^2)
+      
+      ##redefine cluster if midpoint is closer    
+      data$clust <- ifelse(data$dist < data$min_dist, i, data$clust)
+    
+      ##adjust min dist if needed
+      data$min_dist <- ifelse(data$dist < data$min_dist, data$dist, data$min_dist)
+     
+      
+    }
+    
+    ##Re-assign cluster centers
+    clusters_new <- data %>%
+  group_by(clust) %>%
+  summarise(x_avg = mean(x), 
+            y_avg = mean(y)) %>%
+  arrange(clust)
+
+clusters$x_clust <- clusters_new$x_avg
+clusters$y_clust <- clusters_new$y_avg
+    
+  }
+      data %>%
+        select(x, y, min_dist, clust)
+}
+
+
+```
+
+## Create function to plot output for kmeans
+
+```{r}
+
+##Function to plot output from kmeans function
+k_viz <- function(data, xlab, ylab){
+  ggplot(data, aes(x = data[,1], y = data[,2], color = as.factor(data[,4]) ) ) + geom_point() + 
+   scale_color_discrete(name = "Cluster") + labs(x = xlab, 
+                                                 y = ylab)
+}
+```
+
+## Create a K-means package
+
+```{r, echo=T, eval=F}
+
+setwd("C:/Users/James/OneDrive/School/MATH_3190/github")
+devtools::create("hw2kmeans")
+usethis::use_mit_license()
+setwd("C:/Users/James/OneDrive/School/MATH_3190/github/hw2kmeans")
+devtools::document()
+```
+
+## Unit tests for kmeans package
+
+```{r}
+setwd("C:/Users/James/OneDrive/School/MATH_3190/github")
+devtools::install("hw2kmeans")
+library(hw2kmeans)
+```
+
+```{r}
+data(iris)
+
+
+test <- kmeans(iris$Sepal.Length, iris$Sepal.Width, 4, 10)
+
+##try to pass a dataframe as an argument
+test_that("result",
+  expect_error( kmeans(iris$Sepal.Length, iris, 4, 10)
+) 
+)
+
+test_that("object",{
+  expect_true(is.data.frame(kmeans(iris$Sepal.Length, iris$Sepal.Width, 4, 10)),
+) 
+})
+
+
+```
+
+```{r}
+##unit test for k_viz
+k_test <- k_viz(test, "X Label", "Y Label")
+
+test_that("result",{
+  expect_equal(k_viz(test,"X Label", "Y Label" ),
+     k_test) })
+
+test_that("object", {
+  expect_true(is.list(k_viz(test,"X Label", "Y Label" )))
+})
+
+```
+
+##Kmeans shiny interface
+
+
+```{r}
+data(iris)
+setwd("C:/Users/James/OneDrive/School/MATH_3190/github/hw2kmeans/inst")
+source("ui.R")
+source("server.R")
+
+shinyApp(server = server, ui = ui)
+
+shiny_app("C:/Users/James/OneDrive/School/MATH_3190/github/hw2kmeans/inst")
+```
