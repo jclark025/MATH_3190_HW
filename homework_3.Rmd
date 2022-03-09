@@ -1,0 +1,92 @@
+---
+title: "homework_3"
+author: "James Clark"
+date: "3/7/2022"
+output: html_document
+---
+
+```{r load libraries}
+library(tidyverse)
+library(lubridate)
+library(shiny)
+```
+
+## Get previous points from homework 2
+
+Meeting Thursday 3-10 @ 4!
+
+
+## Evaluate Shiny Interfaces and improve them
+
+### Previous graph corrections
+Some teams play each other more than once. The graph has now been updated so that the bars are transparent so if teams do play more than once it can be visualized. 
+
+```{r}
+##load basketball data and create new tables and graphs for shiny interface
+load("C:/Users/James/OneDrive/School/MATH_3190/github/hw2package/data/basketball.Rdata")
+
+##install package
+setwd("C:/Users/James/OneDrive/School/MATH_3190/github")
+devtools::install("hw2package")
+library(hw2package)
+
+##find teams average point differential by home and away
+team_select("Southern Utah", basketball) %>%
+  mutate(home_team = ifelse(home == "Southern Utah", "Home", "Away"),
+         score = ifelse(home == "Southern Utah", home_score, away_score),
+         opp_score = ifelse(home == "Southern Utah", away_score, home_score) ) %>%
+  group_by(home_team) %>%
+  summarise(avg_point_diff = mean(point_diff),
+            avg_score = mean(score),
+            avg_opp_score = mean(opp_score) )
+
+suu <- team_select("Southern Utah", basketball) %>%
+  mutate(home_team = ifelse(home == "Southern Utah", "Home", "Away"),
+         score = ifelse(home == "Southern Utah", home_score, away_score),
+         opp_score = ifelse(home == "Southern Utah", away_score, home_score),
+         Result = ifelse(
+      (away == "Southern Utah" & point_diff <0 ) | (home == "Southern Utah" & point_diff > 0),
+      "Win","Loss"
+    ))
+
+ggplot(suu, aes(x = date, y = score, fill = Result)) + geom_col() + labs(x = "Date",
+                                                                         y = "Score",
+                                                                         title = "Score by Date")
+
+```
+
+### Additons to Shiny Interface
+A graph showing the point scored by date has been added to the interface. A table that displays the point differential at home and away has also been added. The appropriate functions to create these have been added to "hw2package". 
+
+```{r shiny interface}
+##This will require the basketball_2022 df that was created above
+setwd("C:/Users/James/OneDrive/School/MATH_3190/github/hw2package/inst")
+source("ui.R")
+source("server.R")
+
+shinyApp(server = server, ui = ui)
+```
+
+## Finish going through ggplot examples
+Finished!
+
+
+## Find Misrepresented statistics
+1.
+This depicts pitch velocity from one year to the next. However, it does not include 0 in the axis so the difference looks much bigger than it actually is.
+https://www.reddit.com/r/dataisugly/comments/1edq0h/when_baseball_tries_and_fails_to_properly_display/
+
+2.
+This is a culprit of bad labeling. It asks if a gallon of gas or a gallon of milk should cost less and the answers are "yes" or "no". This makes it almost impossible to distinguish what the results truly are.
+https://www.reddit.com/r/dataisugly/comments/2h8nlb/milk_or_gas_yes_or_no_xpost_rfunny/
+
+3.
+This graph has a very suspicious y-axis. It starts at 1 instead of 0 and then increases by a weird scale jumping by an unrecognizable scale.
+https://imgur.com/8YFsFE7
+
+4.
+This is a pie graph that represents the distribution of each class. Aside from the total being greateer than 100%, all of the classes have the same distribution at least numerically. However, the have very different areas in the pie chart.
+https://imgur.com/Pbdf82f
+
+5.
+This graph is nonsense. The y-axis is not labeled. Likewise, the values are inconsistent with the graph 9.1% is higher than 9.0%, but also lower than 8.3%. A consistent scale needs to be applied. 
