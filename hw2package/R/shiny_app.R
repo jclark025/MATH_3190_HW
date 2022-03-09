@@ -13,8 +13,8 @@
 #' shiny_app("C:/Users/James/OneDrive/School/MATH_3190/github/hw2package/inst")
 shiny_app <- function(directory){
   setwd(directory)
-source("ui.R")
-source("server.R")
-
-shinyApp(server = server, ui = ui)
+  source("ui.R")
+  source("server.R")
+  
+  shinyApp(server = server, ui = ui)
 }

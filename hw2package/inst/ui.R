@@ -3,8 +3,10 @@ ui <- fluidPage(
   textInput(inputId = "team",
             label = "Select a Team", 
             value = "Southern Utah"
-            ),
+  ),
   plotOutput("plot"),
-  tableOutput("table")
+  tableOutput("table"),
+  plotOutput("plot2"),
+  tableOutput("table2")
 )
 

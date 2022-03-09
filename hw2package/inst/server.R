@@ -5,7 +5,13 @@ server <- function(input, output){
     plot(game_graph(input$team,  basketball))
   })
   output$table <- renderTable(
-  team_select(input$team, basketball, chr = T)
+    team_select(input$team, basketball, chr = T)
+  )
+  output$plot2 <- renderPlot({
+    plot(date_graph(input$team, basketball))
+  })
+  output$table2 <- renderTable(
+    point_diff(input$team, basketball)
   )
 }
 

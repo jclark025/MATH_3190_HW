@@ -58,6 +58,7 @@
 2022-01-29,"Florida A&M",65,"Alabama A&M",60,-5
 2022-01-31,"Bethune Cookman",52,"Alabama A&M",67,15
 2022-02-12,"Mississippi Valley St.",92,"Alabama A&M",94,2
+2022-02-14,"Arkansas Pine Bluff",69,"Alabama A&M",74,5
 2021-11-20,"North Carolina Central",74,"Alabama St.",80,6
 2021-11-22,"Tuskegee",65,"Alabama St.",91,26
 2021-11-28,"North Alabama",81,"Alabama St.",69,-12
@@ -68,6 +69,7 @@
 2022-01-29,"Bethune Cookman",73,"Alabama St.",79,6
 2022-01-31,"Florida A&M",66,"Alabama St.",65,-1
 2022-02-12,"Arkansas Pine Bluff",75,"Alabama St.",70,-5
+2022-02-14,"Mississippi Valley St.",85,"Alabama St.",71,-14
 2021-11-09,"Towson",77,"Albany",56,-21
 2021-11-17,"Harvard",60,"Albany",53,-7
 2021-11-24,"Eastern Illinois",62,"Albany",64,2
@@ -84,6 +86,7 @@
 2022-01-29,"Southern",64,"Alcorn St.",68,4
 2022-01-31,"Grambling St.",80,"Alcorn St.",73,-7
 2022-02-12,"Bethune Cookman",71,"Alcorn St.",63,-8
+2022-02-14,"Florida A&M",58,"Alcorn St.",68,10
 2021-11-09,"Marist",73,"American",77,4
 2021-11-20,"Western Carolina",80,"American",79,-1
 2021-12-08,"St. Francis PA",73,"American",83,10
@@ -210,6 +213,7 @@
 2022-02-03,"Murray St.",65,"Austin Peay",53,-12
 2022-02-10,"Southeast Missouri St.",66,"Austin Peay",74,8
 2022-02-12,"Tennessee St.",52,"Austin Peay",54,2
+2022-02-14,"Eastern Illinois",54,"Austin Peay",62,8
 2021-11-13,"Nebraska Omaha",69,"Ball St.",73,4
 2021-11-19,"Weber St.",85,"Ball St.",74,-11
 2021-11-21,"Massachusetts",86,"Ball St.",89,3
@@ -223,6 +227,7 @@
 2022-01-29,"Western Michigan",72,"Ball St.",83,11
 2022-02-04,"Toledo",83,"Ball St.",93,10
 2022-02-08,"Central Michigan",89,"Ball St.",85,-4
+2022-02-15,"Northern Illinois",64,"Ball St.",58,-6
 2021-11-12,"Incarnate Word",60,"Baylor",87,27
 2021-11-15,"Nicholls St.",60,"Baylor",89,29
 2021-11-17,"Central Arkansas",47,"Baylor",92,45
@@ -297,6 +302,7 @@
 2022-01-25,"Wyoming",62,"Boise St.",65,3
 2022-02-05,"San Jose St.",60,"Boise St.",76,16
 2022-02-11,"UNLV",63,"Boise St.",69,6
+2022-02-13,"Colorado St.",77,"Boise St.",74,-3
 2021-11-09,"Dartmouth",57,"Boston College",73,16
 2021-11-12,"Holy Cross",55,"Boston College",85,30
 2021-11-14,"Fairfield",64,"Boston College",72,8
@@ -338,6 +344,7 @@
 2022-01-25,"Eastern Michigan",71,"Bowling Green",85,14
 2022-01-29,"Kent St.",91,"Bowling Green",83,-8
 2022-02-05,"Northern Illinois",65,"Bowling Green",87,22
+2022-02-15,"Buffalo",112,"Bowling Green",85,-27
 2021-11-13,"Howard",76,"Bradley",64,-12
 2021-11-16,"Missouri S&T",66,"Bradley",92,26
 2021-11-27,"Maine",39,"Bradley",71,32
@@ -547,6 +554,7 @@
 2022-02-03,"Western Michigan",55,"Central Michigan",65,10
 2022-02-05,"Buffalo",74,"Central Michigan",54,-20
 2022-02-10,"Ohio",81,"Central Michigan",72,-9
+2022-02-15,"Eastern Michigan",75,"Central Michigan",70,-5
 2021-11-22,"Oregon",73,"Chaminade",49,-24
 2021-11-24,"Butler",84,"Chaminade",51,-33
 2021-11-11,"South Carolina St.",74,"Charleston",106,32
@@ -561,6 +569,7 @@
 2022-01-25,"William & Mary",73,"Charleston",74,1
 2022-01-27,"Hofstra",76,"Charleston",73,-3
 2022-01-29,"Northeastern",63,"Charleston",81,18
+2022-02-14,"Drexel",75,"Charleston",79,4
 2021-11-09,"Johnson & Wales NC",71,"Charleston Southern",118,47
 2021-11-20,"Bob Jones",63,"Charleston Southern",119,56
 2021-12-02,"Jacksonville",67,"Charleston Southern",56,-11
@@ -624,6 +633,7 @@
 2022-01-12,"East Carolina",71,"Cincinnati",79,8
 2022-01-20,"Tulsa",69,"Cincinnati",90,21
 2022-02-06,"Houston",80,"Cincinnati",58,-22
+2022-02-15,"Memphis",81,"Cincinnati",74,-7
 2021-11-09,"Presbyterian",53,"Clemson",64,11
 2021-11-12,"Wofford",68,"Clemson",76,8
 2021-11-15,"Bryant",70,"Clemson",93,23
@@ -681,6 +691,7 @@
 2022-02-02,"Bucknell",69,"Colgate",83,14
 2022-02-07,"Holy Cross",60,"Colgate",87,27
 2022-02-09,"Lehigh",62,"Colgate",78,16
+2022-02-14,"Lafayette",61,"Colgate",69,8
 2021-11-09,"Montana St.",90,"Colorado",94,4
 2021-11-13,"New Mexico",76,"Colorado",87,11
 2021-11-15,"Maine",46,"Colorado",90,44
@@ -745,6 +756,7 @@
 2022-01-24,"Howard",81,"Coppin St.",83,2
 2022-01-29,"Maryland Eastern Shore",64,"Coppin St.",61,-3
 2022-02-12,"South Carolina St.",66,"Coppin St.",58,-8
+2022-02-14,"North Carolina Central",77,"Coppin St.",74,-3
 2021-11-16,"Colgate",68,"Cornell",78,10
 2021-11-19,"Wells",48,"Cornell",107,59
 2021-11-24,"St. Francis PA",80,"Cornell",93,13
@@ -770,6 +782,7 @@
 2022-01-22,"DePaul",47,"Creighton",60,13
 2022-01-29,"Xavier",74,"Creighton",64,-10
 2022-02-08,"Butler",52,"Creighton",54,2
+2022-02-14,"Georgetown",77,"Creighton",88,11
 2021-11-16,"Northern Vermont",74,"Dartmouth",114,40
 2021-12-08,"Quinnipiac",72,"Dartmouth",69,-3
 2021-12-11,"Boston University",65,"Dartmouth",62,-3
@@ -786,6 +799,7 @@
 2022-01-26,"VCU",70,"Davidson",68,-2
 2022-01-29,"La Salle",69,"Davidson",77,8
 2022-02-09,"Saint Joseph's",67,"Davidson",73,6
+2022-02-14,"Duquesne",61,"Davidson",72,11
 2021-11-09,"Illinois Chicago",54,"Dayton",64,10
 2021-11-13,"UMass Lowell",59,"Dayton",58,-1
 2021-11-17,"Lipscomb",78,"Dayton",59,-19
@@ -815,6 +829,7 @@
 2022-02-03,"Drexel",76,"Delaware",68,-8
 2022-02-10,"Northeastern",61,"Delaware",74,13
 2022-02-12,"Hofstra",80,"Delaware",66,-14
+2022-02-14,"James Madison",60,"Delaware",81,21
 2021-11-09,"Cairn",41,"Delaware St.",80,39
 2021-11-12,"Salisbury",91,"Delaware St.",78,-13
 2021-11-16,"Regent",30,"Delaware St.",84,54
@@ -827,6 +842,7 @@
 2022-02-02,"Coppin St.",59,"Delaware St.",57,-2
 2022-02-07,"Howard",69,"Delaware St.",64,-5
 2022-02-09,"Maryland Eastern Shore",58,"Delaware St.",50,-8
+2022-02-14,"Norfolk St.",69,"Delaware St.",66,-3
 2021-11-09,"Regis",65,"Denver",68,3
 2021-11-12,"Ottawa AZ",72,"Denver",71,-1
 2021-11-21,"Houston Baptist",61,"Denver",74,13
@@ -854,6 +870,7 @@
 2022-01-19,"Xavier",68,"DePaul",67,-1
 2022-01-29,"Connecticut",57,"DePaul",50,-7
 2022-02-09,"Georgetown",74,"DePaul",82,8
+2022-02-15,"Butler",73,"DePaul",71,-2
 2021-12-11,"Western Michigan",64,"Detroit Mercy",83,19
 2021-12-19,"Central Michigan",75,"Detroit Mercy",89,14
 2022-01-07,"Milwaukee",60,"Detroit Mercy",85,25
@@ -919,6 +936,7 @@
 2022-01-22,"Syracuse",59,"Duke",79,20
 2022-01-25,"Clemson",69,"Duke",71,2
 2022-02-07,"Virginia",69,"Duke",68,-1
+2022-02-15,"Wake Forest",74,"Duke",76,2
 2021-11-09,"Rider",61,"Duquesne",73,12
 2021-11-13,"Hofstra",73,"Duquesne",63,-10
 2021-11-15,"Weber St.",63,"Duquesne",59,-4
@@ -1024,6 +1042,7 @@
 2022-01-27,"William & Mary",54,"Elon",61,7
 2022-02-03,"UNC Wilmington",65,"Elon",78,13
 2022-02-05,"Charleston",66,"Elon",64,-2
+2022-02-15,"Hofstra",97,"Elon",64,-33
 2021-11-11,"IUPUI",40,"Evansville",60,20
 2021-11-16,"DePauw",58,"Evansville",69,11
 2021-11-20,"UCF",75,"Evansville",59,-16
@@ -1047,6 +1066,7 @@
 2022-02-06,"Siena",62,"Fairfield",56,-6
 2022-02-09,"Quinnipiac",69,"Fairfield",60,-9
 2022-02-12,"Niagara",53,"Fairfield",73,20
+2022-02-14,"Canisius",76,"Fairfield",80,4
 2021-12-15,"Fairfield",72,"Fairleigh Dickinson",54,-18
 2022-01-21,"St. Francis NY",80,"Fairleigh Dickinson",78,-2
 2022-01-23,"LIU",79,"Fairleigh Dickinson",75,-4
@@ -1136,6 +1156,7 @@
 2022-01-29,"Virginia Tech",85,"Florida St.",72,-13
 2022-02-05,"Wake Forest",68,"Florida St.",60,-8
 2022-02-09,"Pittsburgh",56,"Florida St.",51,-5
+2022-02-15,"Clemson",80,"Florida St.",81,1
 2021-11-09,"Columbia",67,"Fordham",77,10
 2021-11-15,"St. Thomas",78,"Fordham",84,6
 2021-11-19,"Maryland Eastern Shore",75,"Fordham",73,-2
@@ -1148,6 +1169,7 @@
 2022-01-18,"Richmond",83,"Fordham",70,-13
 2022-01-22,"Davidson",69,"Fordham",66,-3
 2022-02-02,"Rhode Island",55,"Fordham",61,6
+2022-02-15,"VCU",66,"Fordham",61,-5
 2021-11-09,"Fresno Pacific",54,"Fresno St.",74,20
 2021-11-12,"LIU",60,"Fresno St.",84,24
 2021-11-15,"Idaho",62,"Fresno St.",69,7
@@ -1277,6 +1299,7 @@
 2022-01-26,"Florida St.",61,"Georgia Tech",75,14
 2022-01-29,"Miami FL",73,"Georgia Tech",62,-11
 2022-02-05,"Clemson",64,"Georgia Tech",69,5
+2022-02-15,"N.C. State",76,"Georgia Tech",61,-15
 2021-11-09,"Dixie St.",63,"Gonzaga",97,34
 2021-11-13,"Texas",74,"Gonzaga",86,12
 2021-11-15,"Alcorn St.",57,"Gonzaga",84,27
@@ -1350,6 +1373,7 @@
 2022-01-19,"New Hampshire",57,"Hartford",69,12
 2022-01-26,"Binghamton",60,"Hartford",72,12
 2022-02-05,"Albany",71,"Hartford",52,-19
+2022-02-14,"Vermont",74,"Hartford",75,1
 2021-11-09,"Morehouse",70,"Harvard",86,16
 2021-11-20,"MIT",52,"Harvard",98,46
 2021-11-24,"Colgate",84,"Harvard",89,5
@@ -1411,6 +1435,7 @@
 2022-01-22,"Bucknell",68,"Holy Cross",65,-3
 2022-01-28,"Lehigh",65,"Holy Cross",67,2
 2022-02-09,"Loyola MD",64,"Holy Cross",68,4
+2022-02-14,"American",60,"Holy Cross",54,-6
 2021-11-09,"Hofstra",75,"Houston",83,8
 2021-11-12,"Rice",46,"Houston",79,33
 2021-11-16,"Virginia",47,"Houston",67,20
@@ -1483,6 +1508,7 @@
 2022-01-17,"Purdue",96,"Illinois",88,-8
 2022-01-25,"Michigan St.",55,"Illinois",56,1
 2022-02-02,"Wisconsin",67,"Illinois",80,13
+2022-02-13,"Northwestern",66,"Illinois",73,7
 2021-11-16,"Trinity Christian",50,"Illinois Chicago",91,41
 2021-11-26,"San Diego",64,"Illinois Chicago",52,-12
 2021-12-02,"Oakland",81,"Illinois Chicago",77,-4
@@ -1493,6 +1519,7 @@
 2022-01-22,"Wright St.",97,"Illinois Chicago",81,-16
 2022-02-03,"Robert Morris",75,"Illinois Chicago",80,5
 2022-02-05,"Youngstown St.",66,"Illinois Chicago",64,-2
+2022-02-14,"IUPUI",54,"Illinois Chicago",57,3
 2021-11-09,"UNC Wilmington",63,"Illinois St.",68,5
 2021-11-16,"Murray St.",77,"Illinois St.",65,-12
 2021-11-20,"Bucknell",100,"Illinois St.",105,5
@@ -1508,6 +1535,7 @@
 2022-01-26,"Drake",89,"Illinois St.",88,-1
 2022-02-05,"Southern Illinois",75,"Illinois St.",69,-6
 2022-02-09,"Valparaiso",75,"Illinois St.",78,3
+2022-02-15,"Northern Iowa",72,"Illinois St.",70,-2
 2021-11-09,"Texas St.",75,"Incarnate Word",57,-18
 2021-11-16,"Concordia TX",82,"Incarnate Word",78,-4
 2021-11-26,"Southeast Missouri St.",79,"Incarnate Word",76,-3
@@ -1539,6 +1567,7 @@
 2022-01-23,"Michigan",80,"Indiana",62,-18
 2022-01-26,"Penn St.",57,"Indiana",74,17
 2022-02-05,"Illinois",74,"Indiana",57,-17
+2022-02-15,"Wisconsin",74,"Indiana",69,-5
 2021-11-14,"Hanover",49,"Indiana St.",90,41
 2021-11-19,"Oklahoma",87,"Indiana St.",63,-24
 2021-11-21,"New Mexico St.",80,"Indiana St.",66,-14
@@ -1567,6 +1596,7 @@
 2022-01-16,"Niagara",55,"Iona",78,23
 2022-01-25,"Siena",57,"Iona",74,17
 2022-01-30,"Saint Peter's",77,"Iona",85,8
+2022-02-13,"Monmouth",62,"Iona",70,8
 2021-11-09,"Longwood",73,"Iowa",106,33
 2021-11-12,"UMKC",57,"Iowa",89,32
 2021-11-16,"North Carolina Central",69,"Iowa",86,17
@@ -1582,6 +1612,7 @@
 2022-01-22,"Penn St.",51,"Iowa",68,17
 2022-01-27,"Purdue",83,"Iowa",73,-10
 2022-02-06,"Minnesota",59,"Iowa",71,12
+2022-02-13,"Nebraska",75,"Iowa",98,23
 2021-11-09,"Kennesaw St.",73,"Iowa St.",84,11
 2021-11-12,"Oregon St.",50,"Iowa St.",60,10
 2021-11-16,"Alabama St.",60,"Iowa St.",68,8
@@ -1617,6 +1648,7 @@
 2022-01-29,"Grambling St.",73,"Jackson St.",64,-9
 2022-01-31,"Southern",75,"Jackson St.",64,-11
 2022-02-12,"Florida A&M",56,"Jackson St.",60,4
+2022-02-14,"Bethune Cookman",51,"Jackson St.",71,20
 2021-11-09,"Trinity Baptist",43,"Jacksonville",79,36
 2021-11-13,"North Carolina A&T",54,"Jacksonville",63,9
 2021-11-27,"Coastal Georgia",54,"Jacksonville",83,29
@@ -1672,6 +1704,7 @@
 2022-01-29,"Kentucky",80,"Kansas",62,-18
 2022-02-05,"Baylor",59,"Kansas",83,24
 2022-02-12,"Oklahoma",69,"Kansas",71,2
+2022-02-14,"Oklahoma St.",62,"Kansas",76,14
 2021-11-10,"Florida A&M",57,"Kansas St.",67,10
 2021-11-17,"Nebraska Omaha",64,"Kansas St.",79,15
 2021-11-22,"Arkansas",72,"Kansas St.",64,-8
@@ -1687,6 +1720,7 @@
 2022-01-22,"Kansas",78,"Kansas St.",75,-3
 2022-02-02,"Oklahoma St.",68,"Kansas St.",71,3
 2022-02-09,"Baylor",75,"Kansas St.",60,-15
+2022-02-14,"West Virginia",73,"Kansas St.",78,5
 2021-11-14,"Piedmont",57,"Kennesaw St.",81,24
 2021-11-15,"Carver",58,"Kennesaw St.",117,59
 2021-11-19,"Belmont",97,"Kennesaw St.",78,-19
@@ -1775,6 +1809,7 @@
 2022-02-02,"Navy",62,"Lehigh",63,1
 2022-02-05,"Boston University",80,"Lehigh",74,-6
 2022-02-12,"Lafayette",73,"Lehigh",69,-4
+2022-02-14,"Bucknell",77,"Lehigh",86,9
 2021-11-11,"Regent",24,"Liberty",85,61
 2021-11-19,"Iona",54,"Liberty",50,-4
 2021-11-27,"Maryland Eastern Shore",61,"Liberty",73,12
@@ -1849,6 +1884,7 @@
 2022-01-26,"North Carolina A&T",71,"Longwood",79,8
 2022-01-29,"Winthrop",88,"Longwood",92,4
 2022-02-10,"USC Upstate",72,"Longwood",85,13
+2022-02-15,"High Point",66,"Longwood",70,4
 2021-11-09,"West Florida",47,"Louisiana",81,34
 2021-11-17,"Xavier LA",72,"Louisiana",84,12
 2021-11-27,"Jackson St.",75,"Louisiana",70,-5
@@ -1914,6 +1950,7 @@
 2022-01-22,"Missouri St.",79,"Loyola Chicago",69,-10
 2022-01-25,"Southern Illinois",47,"Loyola Chicago",59,12
 2022-02-02,"Illinois St.",64,"Loyola Chicago",78,14
+2022-02-13,"Northern Iowa",58,"Loyola Chicago",85,27
 2021-11-09,"Chattanooga",75,"Loyola Marymount",64,-11
 2021-11-13,"Arizona Christian",67,"Loyola Marymount",74,7
 2021-11-17,"Little Rock",63,"Loyola Marymount",82,19
@@ -1965,6 +2002,7 @@
 2022-01-24,"New Hampshire",64,"Maine",71,7
 2022-01-31,"Hartford",78,"Maine",66,-12
 2022-02-02,"UMass Lowell",62,"Maine",50,-12
+2022-02-13,"Stony Brook",85,"Maine",74,-11
 2021-11-09,"Manhattanville",42,"Manhattan",99,57
 2021-11-12,"Fordham",60,"Manhattan",66,6
 2021-11-19,"North Alabama",51,"Manhattan",55,4
@@ -1986,6 +2024,7 @@
 2022-01-23,"Fairfield",69,"Marist",66,-3
 2022-01-26,"Saint Peter's",69,"Marist",62,-7
 2022-02-12,"Canisius",70,"Marist",71,1
+2022-02-14,"Niagara",70,"Marist",77,7
 2021-11-09,"SIU Edwardsville",77,"Marquette",88,11
 2021-11-12,"New Hampshire",70,"Marquette",75,5
 2021-11-15,"Illinois",66,"Marquette",67,1
@@ -2037,6 +2076,7 @@
 2022-01-22,"South Carolina St.",69,"Maryland Eastern Shore",60,-9
 2022-01-24,"North Carolina Central",75,"Maryland Eastern Shore",63,-12
 2022-01-31,"Morgan St.",72,"Maryland Eastern Shore",79,7
+2022-02-14,"Howard",77,"Maryland Eastern Shore",71,-6
 2021-11-09,"UMBC",60,"Massachusetts",77,17
 2021-11-15,"Penn St.",56,"Massachusetts",81,25
 2021-11-19,"UNC Greensboro",90,"Massachusetts",93,3
@@ -2165,6 +2205,7 @@
 2022-01-22,"Southern Miss",60,"Middle Tennessee",74,14
 2022-02-07,"UTSA",75,"Middle Tennessee",84,9
 2022-02-10,"Old Dominion",48,"Middle Tennessee",63,15
+2022-02-13,"Charlotte",63,"Middle Tennessee",78,15
 2021-11-13,"Eastern Kentucky",77,"Milwaukee",71,-6
 2021-11-24,"Yale",69,"Milwaukee",56,-13
 2021-11-28,"Alcorn St.",61,"Milwaukee",57,-4
@@ -2178,6 +2219,7 @@
 2022-01-22,"Detroit Mercy",71,"Milwaukee",58,-13
 2022-02-09,"Northern Kentucky",75,"Milwaukee",39,-36
 2022-02-11,"Wright St.",57,"Milwaukee",60,3
+2022-02-13,"Green Bay",44,"Milwaukee",54,10
 2021-11-09,"UMKC",56,"Minnesota",71,15
 2021-11-12,"Western Kentucky",69,"Minnesota",73,4
 2021-11-19,"Purdue Fort Wayne",49,"Minnesota",78,29
@@ -2209,6 +2251,7 @@
 2022-01-26,"Arkansas",64,"Mississippi",55,-9
 2022-01-29,"Kansas St.",56,"Mississippi",67,11
 2022-02-09,"Alabama",97,"Mississippi",83,-14
+2022-02-15,"South Carolina",77,"Mississippi",74,-3
 2021-11-10,"North Alabama",49,"Mississippi St.",75,26
 2021-11-13,"Montana",49,"Mississippi St.",86,37
 2021-11-17,"Detroit Mercy",64,"Mississippi St.",77,13
@@ -2250,6 +2293,7 @@
 2022-01-25,"Auburn",55,"Missouri",54,-1
 2022-02-02,"Florida",66,"Missouri",65,-1
 2022-02-12,"Mississippi",68,"Missouri",74,6
+2022-02-15,"Arkansas",76,"Missouri",57,-19
 2021-11-09,"Southeast Missouri St.",99,"Missouri St.",94,-5
 2021-11-13,"Alabama St.",60,"Missouri St.",78,18
 2021-11-23,"East Tennessee St.",77,"Missouri St.",76,-1
@@ -2266,6 +2310,7 @@
 2022-01-29,"Evansville",58,"Missouri St.",72,14
 2022-02-06,"Loyola Chicago",71,"Missouri St.",62,-9
 2022-02-12,"Valparaiso",66,"Missouri St.",84,18
+2022-02-15,"Indiana St.",70,"Missouri St.",79,9
 2021-11-16,"Lehigh",75,"Monmouth",85,10
 2021-11-24,"Princeton",64,"Monmouth",76,12
 2021-12-19,"Colgate",66,"Monmouth",77,11
@@ -2325,6 +2370,7 @@
 2022-01-22,"Howard",91,"Morgan St.",82,-9
 2022-01-30,"Delaware St.",70,"Morgan St.",82,12
 2022-02-12,"North Carolina Central",74,"Morgan St.",64,-10
+2022-02-14,"South Carolina St.",66,"Morgan St.",76,10
 2021-11-11,"Washington College",62,"Mount St. Mary's",117,55
 2021-11-27,"Navy",67,"Mount St. Mary's",40,-27
 2021-11-30,"Howard",70,"Mount St. Mary's",72,2
@@ -2421,6 +2467,7 @@
 2022-01-21,"Fresno St.",73,"Nevada",77,4
 2022-01-29,"Utah St.",78,"Nevada",49,-29
 2022-02-08,"Colorado St.",82,"Nevada",72,-10
+2022-02-15,"San Jose St.",72,"Nevada",81,9
 2021-11-09,"St. Joseph's ME",53,"New Hampshire",98,45
 2021-11-23,"Quinnipiac",69,"New Hampshire",84,15
 2021-12-04,"Central Connecticut",45,"New Hampshire",67,22
@@ -2431,6 +2478,7 @@
 2022-01-28,"Stony Brook",76,"New Hampshire",69,-7
 2022-02-02,"Hartford",64,"New Hampshire",70,6
 2022-02-09,"NJIT",60,"New Hampshire",55,-5
+2022-02-14,"UMBC",62,"New Hampshire",68,6
 2021-11-10,"Florida Atlantic",92,"New Mexico",99,7
 2021-11-15,"Grambling St.",61,"New Mexico",86,25
 2021-11-20,"Montana St.",78,"New Mexico",81,3
@@ -2445,6 +2493,7 @@
 2022-01-25,"Fresno St.",65,"New Mexico",60,-5
 2022-01-28,"San Jose St.",70,"New Mexico",86,16
 2022-02-11,"Northern New Mexico",46,"New Mexico",78,32
+2022-02-15,"Wyoming",66,"New Mexico",75,9
 2021-11-09,"UC Irvine",51,"New Mexico St.",62,11
 2021-11-13,"UTEP",71,"New Mexico St.",77,6
 2021-11-18,"Davidson",64,"New Mexico St.",75,11
@@ -2595,6 +2644,7 @@
 2022-01-27,"Central Arkansas",74,"North Florida",93,19
 2022-01-29,"Lipscomb",77,"North Florida",74,-3
 2022-02-09,"Bellarmine",73,"North Florida",70,-3
+2022-02-15,"Liberty",69,"North Florida",72,3
 2021-11-09,"Oklahoma Christian",53,"North Texas",84,31
 2021-11-15,"Buffalo",69,"North Texas",66,-3
 2021-11-18,"UT Arlington",36,"North Texas",64,28
@@ -2644,6 +2694,7 @@
 2022-01-27,"Weber St.",85,"Northern Colorado",76,-9
 2022-02-03,"Portland St.",106,"Northern Colorado",99,-7
 2022-02-07,"Northern Arizona",60,"Northern Colorado",82,22
+2022-02-14,"Southern Utah",95,"Northern Colorado",100,5
 2021-11-21,"Boston University",76,"Northern Illinois",58,-18
 2021-12-01,"Eastern Illinois",45,"Northern Illinois",55,10
 2022-01-15,"Eastern Michigan",70,"Northern Illinois",77,7
@@ -2725,6 +2776,7 @@
 2022-01-09,"Milwaukee",65,"Oakland",86,21
 2022-01-24,"Michigan Dearborn",61,"Oakland",104,43
 2022-01-29,"Illinois Chicago",74,"Oakland",81,7
+2022-02-13,"Detroit Mercy",59,"Oakland",75,16
 2021-11-09,"Belmont",80,"Ohio",92,12
 2021-11-15,"Robert Morris",71,"Ohio",85,14
 2021-11-22,"Mount St. Mary's",59,"Ohio",73,14
@@ -2739,6 +2791,7 @@
 2022-02-01,"Ball St.",63,"Ohio",87,24
 2022-02-03,"Eastern Michigan",68,"Ohio",81,13
 2022-02-05,"Western Michigan",64,"Ohio",77,13
+2022-02-15,"Miami OH",78,"Ohio",91,13
 2021-11-09,"Akron",66,"Ohio St.",67,1
 2021-11-12,"Niagara",74,"Ohio St.",84,10
 2021-11-15,"Bowling Green",58,"Ohio St.",89,31
@@ -2749,6 +2802,7 @@
 2022-01-16,"Penn St.",56,"Ohio St.",61,5
 2022-01-18,"IUPUI",37,"Ohio St.",83,46
 2022-02-06,"Maryland",67,"Ohio St.",82,15
+2022-02-15,"Minnesota",45,"Ohio St.",70,25
 2021-11-09,"Northwestern St.",59,"Oklahoma",77,18
 2021-11-12,"UTSA",44,"Oklahoma",96,52
 2021-11-21,"Utah St.",73,"Oklahoma",70,-3
@@ -2764,6 +2818,7 @@
 2022-01-22,"Baylor",65,"Oklahoma",51,-14
 2022-01-31,"TCU",72,"Oklahoma",63,-9
 2022-02-09,"Texas Tech",55,"Oklahoma",70,15
+2022-02-15,"Texas",80,"Oklahoma",78,-2
 2021-11-09,"UT Arlington",45,"Oklahoma St.",88,43
 2021-11-12,"Oakland",56,"Oklahoma St.",55,-1
 2021-11-14,"Prairie View A&M",59,"Oklahoma St.",72,13
@@ -2793,6 +2848,7 @@
 2022-01-29,"Charlotte",52,"Old Dominion",68,16
 2022-02-03,"Marshall",64,"Old Dominion",79,15
 2022-02-05,"Western Kentucky",77,"Old Dominion",60,-17
+2022-02-13,"UAB",72,"Old Dominion",81,9
 2021-11-12,"Southwestern Christian",50,"Oral Roberts",121,71
 2021-11-18,"Haskell",46,"Oral Roberts",89,43
 2021-11-23,"Rogers St.",31,"Oral Roberts",91,60
@@ -2822,6 +2878,7 @@
 2022-01-29,"Oregon St.",56,"Oregon",78,22
 2022-02-10,"Stanford",60,"Oregon",68,8
 2022-02-12,"California",78,"Oregon",64,-14
+2022-02-14,"Washington St.",59,"Oregon",62,3
 2021-11-09,"Portland St.",64,"Oregon St.",73,9
 2021-11-18,"Samford",78,"Oregon St.",77,-1
 2021-11-21,"Princeton",81,"Oregon St.",80,-1
@@ -2835,6 +2892,7 @@
 2022-01-20,"Washington",82,"Oregon St.",72,-10
 2022-02-09,"California",63,"Oregon St.",61,-2
 2022-02-12,"Stanford",76,"Oregon St.",65,-11
+2022-02-15,"Colorado",90,"Oregon St.",64,-26
 2021-11-11,"Hawaii Hilo",74,"Pacific",85,11
 2021-11-16,"Cal St.Stanislaus",46,"Pacific",65,19
 2021-11-19,"UTEP",73,"Pacific",64,-9
@@ -2868,6 +2926,7 @@
 2022-01-11,"Rutgers",49,"Penn St.",66,17
 2022-01-31,"Iowa",86,"Penn St.",90,4
 2022-02-08,"Michigan",58,"Penn St.",57,-1
+2022-02-15,"Michigan St.",58,"Penn St.",62,4
 2021-11-12,"Idaho St.",60,"Pepperdine",65,5
 2021-11-15,"Utah Valley",86,"Pepperdine",74,-12
 2021-11-17,"UC Davis",67,"Pepperdine",72,5
@@ -2911,6 +2970,7 @@
 2022-02-03,"Saint Mary's",75,"Portland",54,-21
 2022-02-05,"San Francisco",74,"Portland",71,-3
 2022-02-12,"Loyola Marymount",76,"Portland",86,10
+2022-02-15,"Bushnell",39,"Portland",84,45
 2021-11-12,"Evergreen St.",44,"Portland St.",100,56
 2021-11-17,"George Fox",58,"Portland St.",104,46
 2021-11-23,"Portland",69,"Portland St.",54,-15
@@ -2928,6 +2988,7 @@
 2022-01-24,"Alabama A&M",48,"Prairie View A&M",72,24
 2022-01-29,"Texas Southern",75,"Prairie View A&M",74,-1
 2022-02-12,"Southern",77,"Prairie View A&M",84,7
+2022-02-14,"Grambling St.",70,"Prairie View A&M",71,1
 2021-11-12,"VMI",72,"Presbyterian",73,1
 2021-11-15,"The Citadel",70,"Presbyterian",74,4
 2021-11-26,"Central Arkansas",66,"Presbyterian",75,9
@@ -2971,6 +3032,7 @@
 2022-01-23,"Butler",62,"Providence",69,7
 2022-01-30,"Marquette",63,"Providence",65,2
 2022-02-12,"DePaul",73,"Providence",76,3
+2022-02-15,"Villanova",89,"Providence",84,-5
 2021-11-09,"Bellarmine",67,"Purdue",96,29
 2021-11-12,"Indiana St.",67,"Purdue",92,25
 2021-11-16,"Wright St.",52,"Purdue",96,44
@@ -2987,6 +3049,7 @@
 2022-01-30,"Ohio St.",78,"Purdue",81,3
 2022-02-05,"Michigan",76,"Purdue",82,6
 2022-02-08,"Illinois",68,"Purdue",84,16
+2022-02-13,"Maryland",61,"Purdue",62,1
 2021-11-09,"Earlham",54,"Purdue Fort Wayne",103,49
 2021-11-16,"Austin Peay",60,"Purdue Fort Wayne",65,5
 2021-11-26,"Southeastern Louisiana",66,"Purdue Fort Wayne",74,8
@@ -3002,6 +3065,7 @@
 2022-02-06,"Green Bay",55,"Purdue Fort Wayne",71,16
 2022-02-10,"IUPUI",57,"Purdue Fort Wayne",72,15
 2022-02-12,"Illinois Chicago",66,"Purdue Fort Wayne",73,7
+2022-02-14,"Cleveland St.",98,"Purdue Fort Wayne",102,4
 2021-11-12,"Western New England",52,"Quinnipiac",103,51
 2021-11-15,"Holy Cross",68,"Quinnipiac",76,8
 2021-11-20,"Central Connecticut",65,"Quinnipiac",76,11
@@ -3014,6 +3078,7 @@
 2022-01-23,"Iona",76,"Quinnipiac",61,-15
 2022-01-28,"Marist",87,"Quinnipiac",94,7
 2022-02-06,"Monmouth",76,"Quinnipiac",63,-13
+2022-02-13,"Manhattan",83,"Quinnipiac",66,-17
 2021-11-09,"Emory & Henry",72,"Radford",84,12
 2021-11-20,"Navy",47,"Radford",33,-14
 2021-11-24,"William & Mary",54,"Radford",67,13
@@ -3038,6 +3103,7 @@
 2022-01-25,"Richmond",70,"Rhode Island",63,-7
 2022-02-05,"Massachusetts",78,"Rhode Island",67,-11
 2022-02-12,"Davidson",65,"Rhode Island",72,7
+2022-02-14,"Dayton",63,"Rhode Island",57,-6
 2021-11-09,"Pepperdine",63,"Rice",82,19
 2021-11-16,"Southern",63,"Rice",81,18
 2021-11-30,"Texas St.",80,"Rice",69,-11
@@ -3076,6 +3142,7 @@
 2022-01-28,"Fairfield",76,"Rider",65,-11
 2022-01-30,"Canisius",62,"Rider",70,8
 2022-02-08,"Manhattan",67,"Rider",76,9
+2022-02-13,"Siena",76,"Rider",75,-1
 2021-11-19,"Mount St. Mary's",74,"Robert Morris",70,-4
 2021-12-08,"Lancaster Bible",51,"Robert Morris",99,48
 2021-12-11,"Florida Gulf Coast",85,"Robert Morris",74,-11
@@ -3122,6 +3189,7 @@
 2022-01-17,"Central Connecticut",66,"Sacred Heart",74,8
 2022-01-27,"St. Francis NY",71,"Sacred Heart",66,-5
 2022-02-10,"Bryant",99,"Sacred Heart",86,-13
+2022-02-15,"Merrimack",70,"Sacred Heart",63,-7
 2021-11-09,"Maryland Eastern Shore",67,"Saint Joseph's",69,2
 2021-11-13,"Mount St. Mary's",60,"Saint Joseph's",80,20
 2021-11-17,"Drexel",78,"Saint Joseph's",75,-3
@@ -3176,6 +3244,7 @@
 2022-02-04,"Quinnipiac",74,"Saint Peter's",83,9
 2022-02-06,"Marist",50,"Saint Peter's",66,16
 2022-02-11,"Rider",58,"Saint Peter's",49,-9
+2022-02-15,"Iona",70,"Saint Peter's",61,-9
 2021-11-10,"LeTourneau",54,"Sam Houston St.",97,43
 2021-11-17,"Missouri St.",77,"Sam Houston St.",55,-22
 2021-11-21,"Little Rock",59,"Sam Houston St.",77,18
@@ -3231,6 +3300,7 @@
 2022-01-31,"New Mexico",47,"San Diego St.",72,25
 2022-02-06,"Nevada",63,"San Diego St.",65,2
 2022-02-12,"Air Force",64,"San Diego St.",76,12
+2022-02-15,"Utah St.",56,"San Diego St.",75,19
 2021-11-09,"LIU",64,"San Francisco",98,34
 2021-11-11,"Prairie View A&M",76,"San Francisco",92,16
 2021-11-13,"Davidson",60,"San Francisco",65,5
@@ -3433,6 +3503,7 @@
 2022-01-26,"SMU",74,"South Florida",54,-20
 2022-02-07,"Temple",49,"South Florida",52,3
 2022-02-09,"Cincinnati",70,"South Florida",59,-11
+2022-02-15,"Tulane",76,"South Florida",57,-19
 2021-11-13,"Youngstown St.",97,"Southeast Missouri St.",79,-18
 2021-11-19,"Arkansas St.",72,"Southeast Missouri St.",60,-12
 2021-11-22,"Missouri Baptist",63,"Southeast Missouri St.",71,8
@@ -3477,6 +3548,7 @@
 2022-01-30,"Valparaiso",55,"Southern Illinois",77,22
 2022-02-02,"Missouri St.",69,"Southern Illinois",54,-15
 2022-02-12,"Evansville",62,"Southern Illinois",69,7
+2022-02-15,"Bradley",57,"Southern Illinois",65,8
 2021-11-09,"William Carey",67,"Southern Miss",81,14
 2021-11-12,"Louisiana",66,"Southern Miss",45,-21
 2021-11-21,"Lamar",75,"Southern Miss",82,7
@@ -3486,6 +3558,7 @@
 2022-01-19,"Southeastern Baptist",50,"Southern Miss",100,50
 2022-01-27,"North Texas",63,"Southern Miss",54,-9
 2022-01-29,"Rice",76,"Southern Miss",62,-14
+2022-02-14,"Western Kentucky",87,"Southern Miss",77,-10
 2021-11-09,"Bethesda",74,"Southern Utah",116,42
 2021-12-08,"Utah Valley",56,"Southern Utah",60,4
 2021-12-11,"Saint Katherine",61,"Southern Utah",100,39
@@ -3508,6 +3581,7 @@
 2022-01-29,"Saint Joseph's",69,"St. Bonaventure",80,11
 2022-02-01,"Davidson",81,"St. Bonaventure",76,-5
 2022-02-08,"Fordham",51,"St. Bonaventure",76,25
+2022-02-14,"Saint Louis",79,"St. Bonaventure",83,4
 2021-11-13,"St. Thomas",91,"St. Francis NY",73,-18
 2021-11-26,"McNeese St.",71,"St. Francis NY",59,-12
 2021-12-05,"Hartford",68,"St. Francis NY",55,-13
@@ -3544,6 +3618,7 @@
 2022-01-22,"Seton Hall",66,"St. John's",60,-6
 2022-02-01,"Providence",86,"St. John's",82,-4
 2022-02-08,"Villanova",75,"St. John's",69,-6
+2022-02-13,"Connecticut",63,"St. John's",60,-3
 2021-12-02,"Crown",53,"St. Thomas",73,20
 2021-12-11,"Montana St.",72,"St. Thomas",65,-7
 2021-12-14,"Northland",50,"St. Thomas",109,59
@@ -3652,6 +3727,7 @@
 2022-01-29,"LSU",68,"TCU",77,9
 2022-02-05,"Kansas St.",75,"TCU",63,-12
 2022-02-08,"Oklahoma St.",73,"TCU",77,4
+2022-02-15,"Iowa St.",54,"TCU",51,-3
 2021-11-10,"Maryland Eastern Shore",49,"Temple",72,23
 2021-11-13,"USC",76,"Temple",71,-5
 2021-11-18,"Clemson",75,"Temple",48,-27
@@ -3680,6 +3756,7 @@
 2022-01-26,"Florida",71,"Tennessee",78,7
 2022-02-01,"Texas A&M",80,"Tennessee",90,10
 2022-02-12,"Vanderbilt",64,"Tennessee",73,9
+2022-02-15,"Kentucky",63,"Tennessee",76,13
 2021-11-13,"Miami Hamilton",66,"Tennessee Martin",94,28
 2021-11-20,"Troy",80,"Tennessee Martin",67,-13
 2021-11-24,"Carver",43,"Tennessee Martin",103,60
@@ -3746,6 +3823,7 @@
 2022-01-29,"South Carolina",74,"Texas A&M",63,-11
 2022-02-05,"Missouri",70,"Texas A&M",66,-4
 2022-02-08,"LSU",76,"Texas A&M",68,-8
+2022-02-15,"Florida",55,"Texas A&M",56,1
 2021-11-09,"Texas Lutheran",64,"Texas A&M Corpus Chris",102,38
 2021-11-17,"Denver",67,"Texas A&M Corpus Chris",69,2
 2021-11-27,"St. Mary's TX",73,"Texas A&M Corpus Chris",88,15
@@ -3764,6 +3842,7 @@
 2022-01-22,"Alabama A&M",44,"Texas Southern",78,34
 2022-01-24,"Alabama St.",66,"Texas Southern",73,7
 2022-02-12,"Grambling St.",65,"Texas Southern",68,3
+2022-02-14,"Southern",70,"Texas Southern",58,-12
 2021-11-24,"LeTourneau",47,"Texas St.",92,45
 2021-12-05,"Denver",58,"Texas St.",71,13
 2021-12-12,"Southwestern",54,"Texas St.",101,47
@@ -3813,6 +3892,7 @@
 2022-01-25,"Buffalo",75,"Toledo",86,11
 2022-01-28,"Akron",76,"Toledo",84,8
 2022-02-08,"Ohio",62,"Toledo",77,15
+2022-02-15,"Kent St.",72,"Toledo",59,-13
 2021-11-13,"Monmouth",79,"Towson",71,-8
 2021-11-16,"Hampton",54,"Towson",78,24
 2021-11-23,"Penn",61,"Towson",76,15
@@ -3921,6 +4001,7 @@
 2022-01-27,"Cal Poly",59,"UC San Diego",55,-4
 2022-01-29,"Cal St. Bakersfield",75,"UC San Diego",83,8
 2022-02-12,"UC Riverside",62,"UC San Diego",85,23
+2022-02-15,"UC Irvine",56,"UC San Diego",50,-6
 2021-11-10,"San Francisco St.",65,"UC Santa Barbara",119,54
 2021-11-20,"Chicago St.",50,"UC Santa Barbara",81,31
 2021-11-24,"Arkansas Pine Bluff",58,"UC Santa Barbara",86,28
@@ -3944,6 +4025,7 @@
 2022-01-29,"Houston",63,"UCF",49,-14
 2022-02-03,"South Florida",49,"UCF",68,19
 2022-02-08,"Wichita St.",66,"UCF",71,5
+2022-02-14,"Tulsa",67,"UCF",76,9
 2021-11-09,"Cal St. Bakersfield",58,"UCLA",95,37
 2021-11-12,"Villanova",77,"UCLA",86,9
 2021-11-15,"Long Beach St.",79,"UCLA",100,21
@@ -4014,6 +4096,7 @@
 2022-01-22,"Samford",58,"UNC Greensboro",61,3
 2022-02-02,"VMI",76,"UNC Greensboro",65,-11
 2022-02-10,"The Citadel",66,"UNC Greensboro",86,20
+2022-02-13,"Mercer",73,"UNC Greensboro",64,-9
 2021-11-12,"Guilford",68,"UNC Wilmington",77,9
 2021-11-18,"Coastal Carolina",53,"UNC Wilmington",65,12
 2021-11-24,"Southern Miss",80,"UNC Wilmington",66,-14
@@ -4026,6 +4109,7 @@
 2022-01-29,"Hofstra",72,"UNC Wilmington",78,6
 2022-01-31,"Drexel",63,"UNC Wilmington",70,7
 2022-02-12,"Charleston",79,"UNC Wilmington",85,6
+2022-02-14,"William & Mary",73,"UNC Wilmington",80,7
 2021-11-10,"Gardner Webb",58,"UNLV",64,6
 2021-11-13,"California",52,"UNLV",55,3
 2021-11-15,"North Dakota St.",62,"UNLV",64,2
@@ -4144,6 +4228,7 @@
 2022-01-20,"UTSA",64,"UTEP",69,5
 2022-01-27,"Florida Atlantic",68,"UTEP",70,2
 2022-01-29,"FIU",68,"UTEP",79,11
+2022-02-13,"Marshall",88,"UTEP",79,-9
 2021-11-09,"Trinity TX",66,"UTSA",97,31
 2021-11-15,"Texas A&M Commerce",65,"UTSA",62,-3
 2021-11-16,"Denver",64,"UTSA",78,14
@@ -4257,6 +4342,7 @@
 2022-02-02,"Georgia Tech",66,"Virginia Tech",81,15
 2022-02-07,"Pittsburgh",47,"Virginia Tech",74,27
 2022-02-12,"Syracuse",59,"Virginia Tech",71,12
+2022-02-14,"Virginia",53,"Virginia Tech",62,9
 2021-11-09,"Carlow",55,"VMI",111,56
 2021-11-16,"Keystone",35,"VMI",97,62
 2021-11-24,"Presbyterian",59,"VMI",54,-5
@@ -4411,6 +4497,7 @@
 2022-01-22,"Bowling Green",82,"Western Michigan",75,-7
 2022-02-01,"Northern Illinois",75,"Western Michigan",56,-19
 2022-02-12,"Central Michigan",63,"Western Michigan",77,14
+2022-02-15,"Akron",57,"Western Michigan",61,4
 2021-11-09,"Jacksonville St.",57,"Wichita St.",60,3
 2021-11-13,"South Alabama",58,"Wichita St.",64,6
 2021-11-16,"Tarleton St.",51,"Wichita St.",65,14
@@ -4493,6 +4580,7 @@
 2022-01-30,"Purdue Fort Wayne",63,"Wright St.",75,12
 2022-02-04,"Detroit Mercy",59,"Wright St.",90,31
 2022-02-05,"Oakland",64,"Wright St.",75,11
+2022-02-13,"Northern Kentucky",75,"Wright St.",71,-4
 2021-11-10,"Detroit Mercy",47,"Wyoming",85,38
 2021-11-14,"Arkansas Pine Bluff",45,"Wyoming",85,40
 2021-11-26,"Hastings",59,"Wyoming",108,49
@@ -4547,3 +4635,4 @@
 2022-01-29,"Milwaukee",72,"Youngstown St.",86,14
 2022-02-09,"Oakland",71,"Youngstown St.",78,7
 2022-02-11,"Detroit Mercy",69,"Youngstown St.",82,13
+2022-02-13,"Robert Morris",73,"Youngstown St.",68,-5

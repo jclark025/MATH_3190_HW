@@ -30,7 +30,7 @@ game_graph <- function(team, data){
   data <- data %>%
     arrange(date)
   
-  ggplot(data,aes(x = point_diff, y = opp, fill= Result) ) + geom_bar(stat = 'identity') + geom_vline(xintercept = 0) + 
-    labs(x = "Point Differential",y = "Opponent", title = paste(team,"Point Difference by Game") )
+  ggplot(data,aes(x = point_diff, y = opp, fill= Result, alpha = 0.8) ) + geom_bar(stat = 'identity') + geom_vline(xintercept = 0) + 
+    labs(x = "Point Differential",y = "Opponent", title = paste(team,"Point Difference by Game") ) + scale_alpha(guide = "none")
   
 }
