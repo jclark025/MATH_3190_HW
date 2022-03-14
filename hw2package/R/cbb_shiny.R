@@ -10,11 +10,10 @@
 #' @export
 #' 
 #' @examples
-#' shiny_app("C:/Users/James/OneDrive/School/MATH_3190/github/hw2package/inst")
-shiny_app <- function(directory){
-  setwd(directory)
+#' cbb_shiny()
+cbb_shiny <- function(){
+  setwd(system.file("shiny",package = "hw2package" ))
   source("ui.R")
   source("server.R")
-  
   shinyApp(server = server, ui = ui)
 }
