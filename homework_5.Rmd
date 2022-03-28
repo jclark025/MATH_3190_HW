@@ -1,0 +1,65 @@
+---
+title: "Homework 5"
+author: "James Clark"
+date: "3/23/2022"
+output: html_document
+---
+```{r, load libraries}
+
+library(ggplot2)
+```
+
+# Question 1
+
+```{r}
+##plot poisson pmf
+ggplot(data.frame(x=c(1:10)), aes(x)) +
+    geom_point(aes(y=dpois(x, 5))) + labs(y = "density")
+
+##plot manually
+ggplot(data.frame(x=c(1:10)), aes(x)) +
+    geom_point(aes(y=(5^x*exp(-5))/(factorial(x)) )) + labs(y = "density")
+
+
+```
+
+## Question 1 images
+
+```{r label, out.width = "85%", out.height="100%", echo=F}
+knitr::include_graphics("C:/Users/James/OneDrive/School/MATH_3190/HW_5_1.pdf")
+knitr::include_graphics("C:/Users/James/OneDrive/School/MATH_3190/HW_5_1d.pdf")
+
+```
+# Question 2
+
+```{r}
+##plot pmf theta = 0.5
+ggplot(data.frame(x=seq(0,1, by = 0.1)), aes(x)) +
+    geom_point(aes(y=(0.5*x^(0.5-1)) )) + labs(y = "density")
+
+## theta = 5
+ggplot(data.frame(x=seq(0,1, by = 0.1)), aes(x)) +
+    geom_point(aes(y=(5*x^(5-1)) )) + labs(y = "density")
+
+
+```
+
+## Question 2 image
+
+```{r label2, out.width = "85%", out.height="100%", echo=F}
+knitr::include_graphics("C:/Users/James/OneDrive/School/MATH_3190/HW_5_2.pdf")
+```
+
+**Limit of pdf when approaching infinity equals infinity, so MLE may not be maximum
+
+# Question 3
+
+## Question 3 image
+
+
+```{r label3, out.width = "85%", out.height="100%", echo=F}
+knitr::include_graphics("C:/Users/James/OneDrive/School/MATH_3190/HW_5_3.pdf")
+```
+
+The MLE is the sum of squares. This is to be expected because that is what sigma is typically regarded as. 
+
