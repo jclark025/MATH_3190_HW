@@ -1,0 +1,200 @@
+---
+title: "homework_6"
+author: "James Clark"
+date: "4/6/2022"
+output: html_document
+---
+
+```{r, load packages, include=F}
+setwd("C:/Users/James/OneDrive/School/MATH_3190")
+library(tibble)
+library(glmnet)
+library(dplyr)
+
+```
+
+## Question 1
+
+### Part a
+```{r, salary data}
+salary <- tibble(
+    Salary = c(57310.00, 57380.00, 54135.00, 56985.00, 58715.00, 60620.00, 59200.00, 60320.00),
+    Employment = c(10,5,3,6,8,20,8,14),
+    Experience = c(2,6,1,5,8,0,4,6),
+    Education = c(16,16,12,14,16,12,18,17)
+)
+```
+
+```{r, linear model}
+lm1 <- lm(Salary~., data = salary)
+summary(lm1)
+```
+
+This model shows that how long someone has been employed is the only significant coefficient in the model. 
+
+### Part b {.tabset}
+
+As lambda increases the lasso model becomes more different than the linear model. The coefficients become more biased, and some variables drop out of the model. 
+
+#### lambda = 1000
+
+```{r}
+y <- data.matrix(salary$Salary)
+x <- data.matrix(salary[,2:4])
+
+lr1 <- glmnet(x, y, alpha = 1, lambda = 1000)
+coef(lr1, s = 0.1)
+
+```
+
+#### lambda = 800
+
+```{r}
+lr2 <- glmnet(x, y, alpha = 1, lambda = 800)
+coef(lr2, s = 0.1)
+
+```
+
+#### lambda = 500
+
+```{r}
+lr3 <- glmnet(x, y, alpha = 1, lambda = 500)
+coef(lr3, s = 0.1)
+```
+
+#### lambda = 1
+
+```{r}
+lr4 <- glmnet(x, y, alpha = 1, lambda = 1)
+coef(lr4, s = 0.1)
+```
+
+
+### Part c
+
+As shown below we see that the best lambda value for this dataset is 7.35. The model gets worse at lambda increases and does not significant;y improve as lambda get any smaller. 
+
+```{r}
+fit1 <- glmnet(x,y)
+plot(fit1)
+print(fit1)
+```
+
+
+### Part d {.tabset}
+
+#### lambda = 1000
+
+```{r}
+rr1 <- glmnet(x, y, alpha = 0, lambda = 1000)
+coef(rr1, s = 0.1)
+
+```
+
+#### lambda = 800
+
+```{r}
+rr2 <- glmnet(x, y, alpha = 0, lambda = 800)
+coef(rr2, s = 0.1)
+
+```
+
+#### lambda = 500
+
+```{r}
+rr3 <- glmnet(x, y, alpha = 0, lambda = 500)
+coef(rr3, s = 0.1)
+```
+
+#### lambda = 1
+
+```{r}
+rr4 <- glmnet(x, y, alpha = 0, lambda = 1)
+coef(rr4, s = 0.1)
+```
+
+### Conclusion
+
+The linear model, lasso model, and ridge model are all the same when lambda = 1. As lambda increases lasso drops some variables from the model, while ridge biases the estimates for the coefficients. 
+
+
+## Question 2
+
+```{r}
+cereal <- read.csv("cereal.csv")
+
+cereal.y <- data.matrix(cereal$rating)
+cereal.x <- data.matrix(cereal[,1:15])
+```
+
+### Cereal Lasso Models {.tabset}
+
+#### lambda = 8
+
+```{r}
+cl1 <- glmnet(cereal.x, cereal.y, alpha = 1, lambda = 8)
+coef(cl1, s = 0.1)
+
+```
+
+#### lambda = 5
+
+```{r}
+cl2 <- glmnet(cereal.x, cereal.y, alpha = 1, lambda = 5)
+coef(cl2, s = 0.1)
+
+```
+
+#### lambda = 3
+
+```{r}
+cl3 <- glmnet(cereal.x, cereal.y, alpha = 1, lambda = 3)
+coef(cl3, s = 0.1)
+
+```
+
+#### lambda = 1
+
+```{r}
+cl4 <- glmnet(cereal.x, cereal.y, alpha = 1, lambda = 1)
+coef(cl4, s = 0.1)
+
+```
+
+### Find Best Lambda
+
+```{r}
+fit2 <- glmnet(cereal.x, cereal.y, alpha = 1)
+plot(fit2)
+print(fit2)
+```
+
+The variables that appear to be the most important to ratings based on the lasso model are calories and sugars. The best lambda value as shown above is 0.698. 
+
+## Question 3
+
+```{r}
+car <- read.csv("car_price_prediction.csv")
+
+##electric has level with one observation
+car2 <- car %>% 
+  filter(fuel != "Electric")
+
+car.y <- car2$selling_price
+car.x <- model.matrix( ~ .-1, car2[,c(2,4:8)])
+```
+
+### Elastic Net Model
+
+```{r}
+fit3 <- cv.glmnet(car.x, car.y)
+coef(fit3, s = 0.1)
+plot(fit3)
+fit3$lambda.min
+```
+
+Using cross-validation we find that the best value for lambda is 874.89.
+
+```{r}
+sessionInfo()
+```
