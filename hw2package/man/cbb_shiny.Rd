@@ -18,5 +18,5 @@ Runs college basketball shiny app
 must have df named basketball in environment
 }
 \examples{
-shiny_app("C:/Users/James/OneDrive/School/MATH_3190/github/hw2package/inst")
+cbb_shiny()
 }

@@ -16,7 +16,7 @@
 #' data(iris)
 #' kmeans(iris$Sepal.Length, iris$Sepal.Width, 4, 10)
 
-kmeans <- function(x, y, clust, n){
+k_means <- function(x, y, clust, n){
   
   ##Set initial midpoints
   x_clust <- runif(clust, min = min(x), max = max(x))
