@@ -12,7 +12,7 @@
 #' @examples
 #' data(iris)
 #' shiny_app("C:/Users/James/OneDrive/School/MATH_3190/github/hw2kmeans/inst")
-shiny_app <- function(directory){
+kmeans_shiny <- function(directory){
   setwd(system.file("shiny",package = "hw2kmeans" ))
   source("ui.R")
   source("server.R")

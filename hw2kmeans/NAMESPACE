@@ -3,4 +3,4 @@
 export(k_means)
 export(k_viz)
 export(k_viz2)
-export(shiny_app)
+export(kmeans_shiny)
