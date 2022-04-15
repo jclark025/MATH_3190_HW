@@ -1,0 +1,336 @@
+---
+title: "homework_7"
+author: "James Clark"
+date: "4/11/2022"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(class)
+library(caret)
+library(stats)
+library(umap)
+library(shiny)
+library(lubridate)
+library(glmnet)
+set.seed(12345)
+```
+
+## Question 1
+
+### K-means
+
+```{r, eval=F}
+setwd("C:/Users/James/OneDrive/School/MATH_3190/github")
+devtools::install("hw2kmeans")
+library(hw2kmeans)
+data("iris")
+
+kmeans <- kmeans(cbind(iris$Sepal.Length, iris$Sepal.Width), 3)
+```
+
+```{r, echo=F, eval=F}
+data <- iris
+data$cluster <- kmeans$cluster
+
+##graph scatterplot
+ggplot(data, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
+
+```
+
+It visually appears that the best number of clusters is 3. This makes sense, because there are 3 types of irises. Of course this also depends on the variables clustered on. 
+
+#### Find Optimal value for K
+```{r}
+train_obs <- sample(nrow(iris), nrow(iris)*0.7)
+iris_train <- iris[train_obs,]
+iris_test <- iris[-train_obs,]
+
+knn_accuracy <- NA
+
+for (i in 1:9){
+knn_fit <- knn3(Species ~ ., data = iris_train , k = i)
+  preds <- predict(knn_fit, newdata = iris_test, type = "class")
+  acc <- confusionMatrix(iris_test$Species, preds)$overall["Accuracy"]
+  knn_accuracy[i] <- acc
+}
+
+which.max(knn_accuracy)
+```
+
+### kNN
+
+```{r, echo=F, eval=F}
+data(iris)
+test_data <- as.data.frame(cbind(iris$Sepal.Length, iris$Sepal.Width, preds, as.data.frame(iris$Species) ))
+
+k_viz(test_data, "lab", "lab", 2)
+
+test_data$V4 <- as.factor(test_data$V4)
+
+ggplot(test_data, aes(x = V1, y = V2, color = as.factor(V4) )) + geom_point()
+
+```
+
+### Principle Component Analysis
+
+```{r, echo=F, eval=F}
+x <- as.matrix(iris[,1:4])
+
+pca <- prcomp( t(x) )
+pca$x
+
+data3 <- cbind(as.data.frame(pca$x[,1:2]), iris$Species)
+
+ggplot(data3, aes(x = PC1, y = PC2, color = iris$Species)) + geom_point()
+
+##test function
+k_viz2(data3, "label", "label2")
+```
+
+### Umap
+
+```{r, eval=F}
+umap_fit  <- umap(x)
+
+```
+
+In this instance I prefer Umap as the clusters appear to be the most defined with this method. 
+
+
+## Question 2
+
+```{r}
+setwd("C:/Users/James/OneDrive/School/MATH_3190/github")
+devtools::install("hw2package")
+library(hw2package)
+basketball <- get_data()
+```
+
+### Work through suu example
+
+```{r}
+##get team data/ create function
+suu <- team_select("Southern Utah", basketball)
+
+##get scores in team perspective
+suu$team_score <- ifelse(suu$home == "Southern Utah", suu$home_score, suu$away_score)
+suu$opp_score <- ifelse(suu$home != "Southern Utah", suu$home_score, suu$away_score)
+
+##binary for if home game
+suu$home_game <- ifelse(suu$home == "Southern Utah", 1,0)
+
+##alter point diff and create win variable
+suu$point_diff <- suu$team_score - suu$opp_score
+suu$win <- ifelse(suu$point_diff > 0, 1, 0)
+
+
+##summarise the data
+data2 <- suu %>%
+  group_by(home_game) %>%
+  summarise(win_per = mean(win), 
+            points = mean(team_score),
+            opp_points = mean(opp_score),
+            point_diff = mean(point_diff),
+            ID = "Southern Utah")
+
+data_total <- suu %>%
+  summarise(win_per = mean(win), 
+            points = mean(team_score),
+            opp_points = mean(opp_score),
+            point_diff = mean(point_diff),
+            ID = "Southern Utah")
+
+away <- data2[1,2:6]
+home <- data2[2,2:6]
+
+data3 <- inner_join(away, home, by = "ID", suffix = c("_away", "_home"))
+data4 <- inner_join(data_total, data3, by = "ID")
+
+data4 %>%
+  relocate(ID)
+
+```
+
+### Create function
+
+```{r}
+setwd("C:/Users/James/OneDrive/School/MATH_3190/github")
+devtools::install("hw2package")
+library(hw2package)
+basketball <- get_data()
+```
+
+### work through suu example
+
+```{r, eval=F}
+team_collapse <- function(team, data){
+  
+data <- team_select(team, data)
+  
+##get scores in team perspective
+data$team_score <- ifelse(data$home == team, data$home_score, data$away_score)
+data$opp_score <- ifelse(data$home != team, data$home_score, data$away_score)
+
+##binary for if home game
+data$home_game <- ifelse(data$home == team, 1,0)
+
+##alter point diff and create win variable
+data$point_diff <- data$team_score - data$opp_score
+data$win <- ifelse(data$point_diff > 0, 1, 0)
+
+
+##summarise the data
+data2 <- data %>%
+  group_by(home_game) %>%
+  summarise(win_per = mean(win), 
+            points = mean(team_score),
+            opp_points = mean(opp_score),
+            point_diff = mean(point_diff),
+            ID = team)
+
+data_total <- data %>%
+  summarise(win_per = mean(win), 
+            points = mean(team_score),
+            opp_points = mean(opp_score),
+            point_diff = mean(point_diff),
+            ID = team)
+
+away <- data2[1,2:6]
+home <- data2[2,2:6]
+
+data3 <- inner_join(away, home, by = "ID", suffix = c("_away", "_home"))
+data4 <- inner_join(data_total, data3, by = "ID")
+
+data4 %>%
+  relocate(ID)
+}
+
+team_collapse("Colorado St.", basketball)
+```
+
+### Get data for all teams
+
+```{r}
+teams <- unique(basketball$home)
+
+data2 <- NA
+
+for (i in teams){
+  data <- team_collapse(i, basketball)
+  data2 <- rbind(data2, data)
+}
+
+basketball2 <- data2[-1,]
+```
+
+### create function to summarise all college basketball teams
+
+```{r, eval = F}
+collapse_all <- function(){
+
+basketball <- get_data()
+
+teams <- unique(basketball$home)
+
+data2 <- NA
+
+for (i in teams){
+  data <- team_collapse(i, basketball)
+  data2 <- rbind(data2, data)
+}
+
+basketball2 <- data2[-1,]
+basketball2 %>%
+  select(-point_diff, -point_diff_away, - point_diff_home)
+}
+
+```
+
+
+### Get conference data
+
+```{r}
+setwd("C:/Users/James/OneDrive/School/MATH_3190")
+conf <- read.csv("kenpom22_conf.csv")
+
+conf2 <- conf %>%
+  select(home, home_conference)
+
+conf3 <- unique(conf2)
+
+basketball3 <- left_join(basketball2, conf3, by = c("ID" = "home"))
+
+##merge with tournament
+tournament<- read.csv("tournament.csv")
+
+basketball3_2 <- left_join(basketball3, tournament, by = "ID")
+basketball3_2$tournament <- ifelse(is.na(basketball3_2$tournament), 0, basketball3_2$tournament)
+
+
+##remove variables that are linear combinations
+
+basketball4 <- basketball3_2 %>%
+  select(points, points_away, opp_points_away, points_home, opp_points_home, home_conference, tournament) %>%
+  filter(!is.na(home_conference))
+
+win_per <- data.matrix(basketball3_2 %>%
+                         filter(!is.na(home_conference)) %>%
+                         select(win_per))
+
+log_win <- log(win_per)
+x <- model.matrix( ~ .-1, basketball4)
+
+```
+
+
+
+
+### Run LASSO regression
+
+```{r}
+
+fit1 <- cv.glmnet(x, win_per, alpha = 1)
+plot(fit1)
+coef(fit1, s = 0.1)
+fit1$lambda.min
+
+```
+
+The LASSO regression shows that when you score 1 point more on average that teams winning percentage increases by an estimated 0.1 percentage points holding all else constant. The best lambda is 0.004 as shown above. 
+
+##Principle component analysis
+
+```{r}
+test <- collapse_all()
+pca2 <- prcomp(t(test[,2:10]) )
+pca2$x
+```
+
+
+
+
+## Umap
+
+```{r}
+umap <- umap(x)
+umap$layout
+
+```
+
+## Shiny Apps
+
+```{r, shiny, eval=F,  echo=T}
+cbb_shiny()
+kmeans_shiny()
+```
+
+```{r,session}
+sessionInfo()
+```
+
+
