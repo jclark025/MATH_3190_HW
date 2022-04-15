@@ -47,7 +47,7 @@ server <- function(input, output, session) {
   
   x <- iris[,1:4]
   
-  pca <- prcomp(x)
+  pca <- prcomp( t(x) )
   
   selectedx3 <- reactive({
     pca$x[,input$xpca]

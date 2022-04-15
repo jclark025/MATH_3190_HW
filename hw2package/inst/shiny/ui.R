@@ -4,16 +4,33 @@ ui <- fluidPage(
             label = "Select a Team", 
             value = "Southern Utah"
   ),
-  headerPanel("Opponent Summary"),
   plotOutput("plot"),
-  
-  headerPanel("Game Data"),
   tableOutput("table"),
-  
-  headerPanel("Scoring Trends"),
   plotOutput("plot2"),
+  tableOutput("table2"),
   
-  headerPanel("Home/Away"),
-  tableOutput("table2")
+  # Put a titlePanel here
+  titlePanel("Principle Component Analysis"),
+  
+  sidebarLayout(
+    # Sidebar. Put your inputs inside the sidebarPanel
+    sidebarPanel(
+      numericInput("xpca", "Principle Component",1, min = 1, max = 9),
+      numericInput("ypca", "Principle Component",2, min = 1, max = 9)
+    ),
+    
+    # Main panel. put your output plot here
+    mainPanel(
+      plotOutput('plot3')    )
+  ),
+  
+  # Put a titlePanel here
+  titlePanel("Umap"),
+  
+  # Main panel. put your output plot here
+  mainPanel(
+    plotOutput('plot4')    )
+  
+  
 )
 
