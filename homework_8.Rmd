@@ -1,0 +1,161 @@
+---
+title: "homework_8"
+author: "James Clark"
+date: "4/22/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE, warning=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, load libraries, include=F}
+setwd("C:/Users/James/OneDrive/School/MATH_3190")
+library(umap)
+library(tidyverse)
+library(dendextend)
+library(caret)
+library(e1071)
+library(randomForest)
+library(neuralnet)
+```
+
+```{r, read data}
+##read in data
+tb <- readRDS("TBnanostring.rds")
+x <- as.matrix(tb[,2:108])
+```
+
+### Umap
+
+```{r, umap}
+umap_fit <- umap(x)
+
+umap_plot <- cbind(as.data.frame(umap_fit$layout), tb$TB_Status)
+
+##plot umap fit
+ggplot(umap_plot, aes(x = V1, y = V2, color = tb$TB_Status) ) + geom_point() + labs(x = "X1", y = "X2", color = "TB Status")
+```
+
+Umap creates two fairly distinct clusters as shown above. LTBI occupies mostly the upper portion of the scatter plot while TB is present in the lower part of the scatter plot.
+
+### Hierarchical Clustering
+
+```{r, h clusters}
+hc <- hclust(dist(x))
+dend <- as.dendrogram(hc)
+colors <- as.numeric(tb$TB_Status)
+
+labels_colors(dend) <- colors[order.dendrogram(dend)]
+
+plot(dend)
+
+##split into two clusters
+groups <- cutree(hc, 2)
+table(groups)
+
+##group 1 proportion
+table(groups)[1]/ sum(table(groups))
+
+##group 2 proportion
+1-table(groups)[1]/ sum(table(groups))
+```
+
+### Heatmap
+
+```{r, heatmap}
+x <- sweep(x, 2,
+colMeans(x))
+
+h_1 <- hclust(dist(x))
+h_2 <- hclust(dist(t(x)))
+image(x[h_1$order, h_2$order])
+```
+
+### Data Partitioning
+
+```{r, data partitioning}
+set.seed(0)
+
+train_index <- createDataPartition(tb$TB_Status, times = 1, p = 0.7, list = F)
+
+tb_train <- tb[train_index,]
+tb_test <- tb[-train_index,]
+```
+
+### Support Vector Machines {.tabset}
+
+#### Linear 
+```{r}
+svmfit1 <- svm(TB_Status~., data = tb_train, kernal = "linear")
+print(svmfit1)
+
+##Calculate testing accuracy
+svm_pred1 <- predict(svmfit1, newdata= tb_test)
+cm1 <- confusionMatrix(svm_pred1, tb_test$TB_Status)
+cm1$overall["Accuracy"]
+```
+
+#### Radial 
+```{r}
+svmfit2 <- svm(TB_Status~., data = tb_train, kernal = "radial")
+print(svmfit2)
+
+##Calculate testing accuracy
+svm_pred2 <- predict(svmfit2, newdata= tb_test)
+cm2 <- confusionMatrix(svm_pred2, tb_test$TB_Status)
+cm2$overall["Accuracy"]
+
+```
+
+#### Polynomial
+```{r}
+svmfit3 <- svm(TB_Status~., data = tb_train, kernal = "polynomial")
+print(svmfit3)
+
+##Calculate testing accuracy
+svm_pred3 <- predict(svmfit3, newdata= tb_test)
+cm3 <- confusionMatrix(svm_pred3, tb_test$TB_Status)
+cm3$overall["Accuracy"]
+
+```
+
+### Random Forest
+
+```{r, random forest}
+rf1 <- randomForest(TB_Status~., data = tb_train)
+
+rfpred <- predict(rf1, newdata = tb_test)
+cm4 <- confusionMatrix(rfpred, tb_test$TB_Status)
+cm4$overall["Accuracy"]
+```
+
+
+### Neural Network
+
+```{r, neural net}
+nn1 <- neuralnet(TB_Status~., data = tb_train)
+
+nnpred <- compute(nn1, tb_test)
+nnpred2 <- ifelse(nnpred$net.result[,1] > 0.5, "LTBI", "TB")
+nnpred2 <- factor(nnpred2, levels = c( "LTBI", "TB") )
+cm5 <- confusionMatrix(nnpred2, tb_test$TB_Status)
+cm5$overall["Accuracy"]
+
+```
+
+### Overall Accuracy
+
+```{r, accuracy}
+##svm 
+cm1$overall["Accuracy"]
+
+## Random Forest
+cm4$overall["Accuracy"]
+
+##Neural Network
+cm5$overall["Accuracy"]
+```
+
+As seen above we find that the accuracies for all of the models are the same. In terms of overall accuracy the models are the same. 
+
